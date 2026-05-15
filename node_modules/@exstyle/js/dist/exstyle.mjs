@@ -312,6 +312,8 @@ class ExStyleCore {
 	}
 }
 
+/*! The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp). */
+
 class ExStyle extends ExStyleCore {
 	constructor() {
 		super(); // Coreの初期化

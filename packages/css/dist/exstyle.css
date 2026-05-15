@@ -1,3 +1,4 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp). */
 :where(:nth-child(n of :is(dd, dt, td, th))) {
 	[style*="--d-of-dd-dt-td-th_background--:"] & {
 		background: var(--d-of-dd-dt-td-th_background--);
