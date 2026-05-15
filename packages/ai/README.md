@@ -12,12 +12,12 @@ AI の利用形態に合わせて、以下の3つの方法が効果的です。
 
 新しいセッション・チャットを始める際、最初にマニュアルを流し込みます。
 
-> 次の YAML は ExStyle の仕様書です。この仕様書を理解して、ExStyleプロパティ を使用した HTMLコード を生成してください。
-> [ここに exstyle.yaml の URL かその内容を入力]
+> 次の YAML を理解して、ExStyleプロパティ を使用した HTMLコード を生成してください。
+> https://raw.githubusercontent.com/nov-jp/exstyle/refs/heads/main/packages/ai/exstyle.yaml
 
 ## 2. カスタム指示
 
-ChatGPT の「Custom Instructions」、Claude の「Project」、Gemini の「Gems」に仕様書を常駐させ、「ExStyleプロパティ を使用して HTMLコード を出力」という命令をプロンプトに組み込みます。
+ChatGPT の「Custom Instructions」、Claude の「Project」、Gemini の「Gems」に exstyle.yaml を常駐させ、「ExStyleプロパティ を使用した HTMLコード を出力」という命令をプロンプトに組み込みます。
 
 ## 3. ExStyle JS, ExStyle PHP を直接読み込ませる
 

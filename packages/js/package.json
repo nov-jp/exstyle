@@ -1,7 +1,7 @@
 {
 	"name": "@exstyle/js",
 	"version": "1.0.0",
-	"description": "ExStyle JS: A meta-framework for building styling infrastructure.",
+	"description": "リアルタイムで HTMLコード内 の ExStyleプロパティ を解析し、CSSコード と style要素 を生成するスクリプト。",
 	"main": "dist/exstyle.js",
 	"module": "dist/exstyle.mjs",
 	"files": [

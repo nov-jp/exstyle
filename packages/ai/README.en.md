@@ -14,8 +14,8 @@ Depending on your AI workflow, the following three methods are most effective:
 
 When starting a new session or chat, feed the manual as the initial context.
 
-> "The following YAML is the ExStyle specification. Please internalize these rules and generate HTML code using ExStyle Properties from now on.
-> [Insert the URL or content of exstyle.yaml here]"
+> The following YAML is the ExStyle specification. Please internalize these rules and generate HTML code using ExStyle Properties from now on.
+> https://raw.githubusercontent.com/nov-jp/exstyle/refs/heads/main/packages/ai/exstyle.yaml
 
 ## 2. System Instructions / Knowledge Bases
 

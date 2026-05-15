@@ -4,7 +4,7 @@
 
 # ExStyle Core (@exstyle/core)
 
-ExStyle JS と ExStyle PostCSS のメインの処理部分です。
+ExStyle の各種パッケージで使用するコアデータとコアスクリプト。
 
 data.json には、ExStyleプロパティ のプレフィックスとプロパティに関するデータがまとめられています。
 データの並び順は、生成される CSSコード の並び順に大きく影響しています。

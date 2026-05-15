@@ -1,8 +1,7 @@
 {
 	"name": "@exstyle/ai",
 	"version": "1.0.0",
-	"description": "AI に ExStyle を確実に理解してもらうための仕様書。",
-	"main": "index.js",
+	"description": "AI に ExStyle を理解してもらい、ExStyleプロパティ を使用した HTMLコード を生成してもらうための仕様書。",
 	"scripts": {},
 	"keywords": [ "ExStyle", "AI" ],
 	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",

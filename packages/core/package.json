@@ -1,8 +1,8 @@
 {
 	"name": "@exstyle/core",
 	"version": "1.0.0",
-	"description": "ExStyle の各種パッケージで使用する JSコード と JSONデータ などのコアデータ。",
-	"main": "index.js",
+	"description": "ExStyle の各種パッケージで使用するコアデータとコアスクリプト。",
+	"main": "src/index.js",
 	"scripts": {},
 	"keywords": [ "ExStyle", "Core" ],
 	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",

@@ -28,7 +28,7 @@ This is the most popular method, but a Flash of Unstyled Content (FOUC) may occu
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     …
-    <script src="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/js/dist/exstyle.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/open-props" />
     …
   </head>
@@ -52,7 +52,8 @@ This method involves loading the code as an inline script to avoid the state whe
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     …
     <script>
-    var ExStyle=function(){…}();
+    var ExStyle=function(){ … }
+    /*! The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp). */ …
     //# sourceMappingURL=exstyle.min.js.map
     </script>
     <link rel="stylesheet" href="https://unpkg.com/open-props" />

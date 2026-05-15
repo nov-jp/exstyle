@@ -1,7 +1,7 @@
 {
 	"name": "@exstyle/postcss",
 	"version": "1.0.0",
-	"description": "",
+	"description": "ビルドプロセスに組み込む、HTMLコード内 の ExStyleプロパティ から CSSコード の生成と CSSファイル の出力を行うツール。",
 	"main": "index.js",
 	"scripts": {},
 	"keywords": [ "ExStyle", "PostCSS" ],

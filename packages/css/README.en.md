@@ -18,22 +18,22 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
 
 * **exstyle.css**
   ```
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle.min.css" />
   ```
   A bundle that combines the various ExStyle CSS modules listed below:
   * **exstyle-box-margin.css**: Enables setting margins for the outside of boxes.
     ```
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-box-margin.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-box-margin.min.css" />
     ```
     * `--(d-of-dd-dt-td-th_|c_)?margin(-block(-start|-end)?|-inline(-start|-end)?)?--`
   * **exstyle-box-padding.css**: Enables setting padding for the inside of boxes.
     ```
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-box-padding.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-box-padding.min.css" />
     ```
     * `--(d-of-dd-dt-td-th_|c_)?padding(-block(-start|-end)?|-inline(-start|-end)?)?--`
   * **exstyle-color.css**: Enables various properties for setting colors.
     ```
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-color.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-color.min.css" />
     ```
     * `--(d-of-dd-dt-td-th_|d-of-dt-th_|d-of-dd-td_|c_|c-nth-even_|c-nth-odd_)?background--`
     * `--background-attachment--: fixed;`
@@ -44,7 +44,7 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
     * `--(d-of-dd-dt-td-th_|d-of-dt-th_|d-of-dd-td_|c_|c-nth-even_|c-nth-odd_)?color--`
   * **exstyle-layout.css**: Enables various properties related to layout.
     ```
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-layout.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-layout.min.css" />
     ```
     * `--columns--`
     * `--column-fill--`
@@ -64,7 +64,7 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
     * `--(cq-i-s_|cq-i-m_|cq-i-l_|cq-i-xl_)?z-index--`
   * **exstyle-lists.css**: Enables various properties related to lists.
     ```
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-lists.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-lists.min.css" />
     ```
     * `--list-style--`
     * `--list-style-type--`
@@ -72,7 +72,7 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
     * `--list-style-position--`
   * **exstyle-sizing.css**: Enables various properties related to element sizing.
     ```
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-sizing.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-sizing.min.css" />
     ```
     * `--aspect-ratio--`
     * `--block-size--`
@@ -86,7 +86,7 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
     * `--overflow--`
   * **exstyle-table.css**: Enables various properties related to tables.
     ```
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-table.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-table.min.css" />
     ```
     * `--border-collapse--`
     * `--border-spacing--`
@@ -95,7 +95,7 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
     * `--table-layout--`
   * **exstyle-text.css**: Enables various properties for text decoration.
     ```
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-text.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-text.min.css" />
     ```
     * `--font(-family|-size|-style|-weight)--`
     * `--text-align--`
@@ -109,7 +109,7 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
     * `--x-text-marker--`
 * **exstyle-effects.css**: Enables effects using user-action pseudo-classes and transitions.
   ```
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-effects.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-effects.min.css" />
   ```
   * `--transition--`
   * `--(hover_|active_|focus-visible_)background--`
@@ -126,13 +126,13 @@ In this example, [Open Props]() is used for the values of the ExStyle Properties
 
 ```HTML
 <!-- To load the bundled ExStyle CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle.min.css" />
 
 <!-- To load only the specific files you need -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-box-padding.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-color.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-sizing.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-table.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-box-padding.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-color.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-sizing.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/packages/css/dist/exstyle-table.min.css" />
 
 <link rel="stylesheet" href="https://unpkg.com/open-props" />
 …

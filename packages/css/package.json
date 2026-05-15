@@ -1,8 +1,7 @@
 {
 	"name": "@exstyle/css",
 	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
+	"description": "厳選した ExStyleプロパティ を収録した CSSファイル群。",
 	"scripts": {
 		"build": "node build.js"
 	},
