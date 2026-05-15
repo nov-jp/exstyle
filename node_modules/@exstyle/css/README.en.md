@@ -21,23 +21,20 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle.min.css" />
   ```
   A bundle that combines the various ExStyle CSS modules listed below:
-  * **exstyle-box-margin.css**
+  * **exstyle-box-margin.css**: Enables setting margins for the outside of boxes.
     ```
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-box-margin.min.css" />
     ```
-    Enables setting margins for the outside of boxes.
     * `--(d-of-dd-dt-td-th_|c_)?margin(-block(-start|-end)?|-inline(-start|-end)?)?--`
-  * **exstyle-box-padding.css**
+  * **exstyle-box-padding.css**: Enables setting padding for the inside of boxes.
     ```
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-box-padding.min.css" />
     ```
-    Enables setting padding for the inside of boxes.
     * `--(d-of-dd-dt-td-th_|c_)?padding(-block(-start|-end)?|-inline(-start|-end)?)?--`
-  * **exstyle-color.css**
+  * **exstyle-color.css**: Enables various properties for setting colors.
     ```
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-color.min.css" />
     ```
-    Enables various properties for setting colors.
     * `--(d-of-dd-dt-td-th_|d-of-dt-th_|d-of-dd-td_|c_|c-nth-even_|c-nth-odd_)?background--`
     * `--background-attachment--: fixed;`
     * `--background-color--`
@@ -45,11 +42,10 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
     * `--(d-of-dd-dt-td-th_|c_)?border-radius--`
     * `--(d-of-dd-dt-td-th_|c_)?box-shadow--`
     * `--(d-of-dd-dt-td-th_|d-of-dt-th_|d-of-dd-td_|c_|c-nth-even_|c-nth-odd_)?color--`
-  * **exstyle-layout.css**
+  * **exstyle-layout.css**: Enables various properties related to layout.
     ```
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-layout.min.css" />
     ```
-    Enables various properties related to layout.
     * `--columns--`
     * `--column-fill--`
     * `--column-rule--`
@@ -66,20 +62,18 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
     * `--(cq-i-s_|cq-i-m_|cq-i-l_|cq-i-xl_)?place-items--`
     * `--(cq-i-s_|cq-i-m_|cq-i-l_|cq-i-xl_)?place-self--`
     * `--(cq-i-s_|cq-i-m_|cq-i-l_|cq-i-xl_)?z-index--`
-  * **exstyle-lists.css**
+  * **exstyle-lists.css**: Enables various properties related to lists.
     ```
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-lists.min.css" />
     ```
-    Enables various properties related to lists.
     * `--list-style--`
     * `--list-style-type--`
     * `--list-style-image--`
     * `--list-style-position--`
-  * **exstyle-sizing.css**
+  * **exstyle-sizing.css**: Enables various properties related to element sizing.
     ```
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-sizing.min.css" />
     ```
-    Enables various properties related to element sizing.
     * `--aspect-ratio--`
     * `--block-size--`
     * `--min-block-size--`
@@ -90,21 +84,19 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
     * `--object-fit--`
     * `--object-position--`
     * `--overflow--`
-  * **exstyle-table.css**
+  * **exstyle-table.css**: Enables various properties related to tables.
     ```
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-table.min.css" />
     ```
-    Enables various properties related to tables.
     * `--border-collapse--`
     * `--border-spacing--`
     * `--caption-side--`
     * `--empty-cells--`
     * `--table-layout--`
-  * **exstyle-text.css**
+  * **exstyle-text.css**: Enables various properties for text decoration.
     ```
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-text.min.css" />
     ```
-    Enables various properties for text decoration.
     * `--font(-family|-size|-style|-weight)--`
     * `--text-align--`
     * `--text-decoration--`
@@ -115,11 +107,10 @@ ExStyle CSS is a curated and limited collection of ExStyle Properties designed t
     * `--vertical-align--`
     * `--white-space--`
     * `--x-text-marker--`
-* **exstyle-effects.css**
+* **exstyle-effects.css**: Enables effects using user-action pseudo-classes and transitions.
   ```
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle-effects.min.css" />
   ```
-  Enables effects using user-action pseudo-classes and transitions.
   * `--transition--`
   * `--(hover_|active_|focus-visible_)background--`
   * `--(hover_|active_|focus-visible_)border-color--`
