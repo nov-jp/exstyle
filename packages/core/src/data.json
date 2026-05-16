@@ -21,12 +21,7 @@
 		"last-child",
 		"only-child",
 		"nth-child",
-		"nth-last-child",
-		"first-of-type",
-		"last-of-type",
-		"only-of-type",
-		"nth-of-type",
-		"nth-last-of-type"
+		"nth-last-child"
 	],
 	"pseudo_classes": [
 		"any-link",

@@ -23,12 +23,7 @@ var ExStyle = (function () {
 		"last-child",
 		"only-child",
 		"nth-child",
-		"nth-last-child",
-		"first-of-type",
-		"last-of-type",
-		"only-of-type",
-		"nth-of-type",
-		"nth-last-of-type"
+		"nth-last-child"
 	];
 	var pseudo_classes = [
 		"any-link",
@@ -125,6 +120,7 @@ var ExStyle = (function () {
 		text_style: text_style
 	};
 
+	/* The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp). */
 	class ExStyleCore {
 		constructor() {
 			// メディアクエリ・コンテナクエリ
@@ -141,7 +137,7 @@ var ExStyle = (function () {
 			for ( const [ k1, v1 ] of Object.entries( this._combinators ) ) {
 				this._descendants[ k1 ] = v1.slice( 1 ); // 先頭の '&' を除去
 				for ( const v2 of this._tree_structures ) {
-					this._descendants[ `${ k1 }-${ v2 }` ] = `${ v1 }:where(:${ v2 }${ ( v2.startsWith( 'nth-' ) ? '(n)' : '' ) })`.slice( 1 ); // 先頭の '&' を除去
+					this._descendants[ `${ k1 }-${ v2 }` ] = `${ v1 }:where(:${ v2 }${ ( v2.startsWith( 'nth' ) ? '(n)' : '' ) })`.slice( 1 ); // 先頭の '&' を除去
 				} // for
 			} // for
 
@@ -183,7 +179,7 @@ var ExStyle = (function () {
 
 		// 解析
 		_parseExStyle( varName ) {
-			const parts = varName.replace( /^--|--$/g, '' ).split( '_' ); // '--cq-i-s_hover_c-nth-child-m2n-p-4-of-p_action_after_content--' => [ 'cq-i-s', 'hover', 'c-nth-child-m2n-p-4-of-p', 'action', 'after', 'content' ]
+			const parts = varName.replace( /^--|--$/g, '' ).split( '_' ); // '--cq-i-s_hover_d-nth-m2np4-of-p_active_after_content--' => [ 'cq-i-s', 'hover', 'd-nth-m2np4-of-p', 'active', 'after', 'content' ]
 
 			const slot = {
 				query: null,
@@ -199,58 +195,60 @@ var ExStyle = (function () {
 			};
 
 			for ( const part of parts ) {
-				if ( this._queries[ part ] ) { // cq-i-s
-					slot.query = this._queries[ part ]; // @container …
+				if ( this._queries[ part ] ) { // '(cq-i|mq-w)-(s|m|l|xl)'
+					slot.query = this._queries[ part ]; // '(@container|@media) …'
 					continue;
 				}
-				if ( this._descendants[ part ] ) {
-					[ slot.dKey, slot.dVal ] = [ part, this._descendants[ part ] ];
+				if ( this._descendants[ part ] ) { // '(d|c|c2|c3)(-empty)?'
+					[ slot.dKey, slot.dVal ] = [ part, this._descendants[ part ] ]; // '( *|(>*){1,3})(:empty)?'
 					continue;
 				}
-				if ( ( part.startsWith( 'd' ) || part.startsWith( 'c' ) ) && part.includes( '-' ) ) {
-					const c = part.slice( 0, part.indexOf( '-' ) ); // 'd', 'c', 'c2', 'c3'
+				if ( this._descendants[ `${ part }-child` ] ) { // '(d|c|c2|c3)(-first|-last|-only)'
+					[ slot.dKey, slot.dVal ] = [ `${ part }-child`, this._descendants[ `${ part }-child` ] ]; // '( *|(>*){1,3}):(first|last|only)-child'
+					continue;
+				}
+				if ( ( part.includes( '-nth-' ) || part.includes( '-of-' ) ) && ! part.includes( '-child-' ) && ! part.includes( '-of-type-' ) ) {
 					let nthPart = '';
-					if ( part.includes( '-nth-' ) ) {
-						if ( part.includes( '-child-' ) ) {
-							nthPart = part.slice( 0, part.indexOf( '-child-' ) + 6 ); // 'c-nth-child', 'c-nth-last-child'
-						} else if ( part.includes( '-of-type-' ) ) {
-							nthPart = part.slice( 0, part.indexOf( '-of-type-' ) + 8 ); // 'c-nth-of-type', 'c-nth-last-of-type'
-						}
-					} else if ( part.startsWith( `${ c }-of-` ) ) { // 'c-of'
+					let n = 'n';
+					const c = part.slice( 0, part.indexOf( '-' ) ); // '(d|c|c2|c3)'
+					if ( part.startsWith( `${ c }-nth-last-` ) ) { // '(d|c|c2|c3)-nth-last-mAnpB(-of-S)?'
+						nthPart = `${ c }-nth-last-child`;
+						n = part.slice( part.indexOf( '-last-' ) + 6 ); // 'mAnpB(-of-S)?'
+					} else if ( part.startsWith( `${ c }-nth-` ) ) { // '(d|c|c2|c3)-nth-mAnpB(-of-S)?'
+						nthPart = `${ c }-nth-child`;
+						n = part.slice( part.indexOf( '-nth-' ) + 5 ); // 'mAnpB(-of-S)?'
+					} else if ( part.startsWith( `${ c }-of-` ) ) { // '(d|c|c2|c3)-of-S'
 						nthPart = `${ c }-nth-child`;
 					}
-					if ( this._descendants[ nthPart ] ) {
-						let n = 'n';
-						let of = '';
-						if ( part.startsWith( nthPart ) ) { // 'c-nth-child', 'c-nth-last-child', 'c-nth-of-type', 'c-nth-last-of-type'
-							n = part.slice( nthPart.length + 1 ); // 'c-nth-child-m2n-p-4-of-p' => 'm2n-p-4-of-p'
+					if ( nthPart && this._descendants[ nthPart ] ) {
+						if ( 'n' !== n ) {
 							if ( n.includes( '-of-' ) ) {
-								n = n.slice( 0, n.indexOf( '-of-' ) ); // 'm2n-p-4-of-p' => 'm2n-p-4'
+								n = n.slice( 0, n.indexOf( '-of-' ) ); // 'mAnpB-of-S' => 'mAnpB'
 							}
-							n = n.replaceAll( '-', ' ' ).replaceAll( 'm', '-' ).replaceAll( 'p', '+' ); // 'm2n-p-4' => '-2n + 4'
+							n = n.replace( 'm', '-' ).replace( 'p', '+' ); // 'mAnpB' => '-An+B'
 						}
-						if ( ! nthPart.endsWith( '-of-type' ) ) { // 'c-nth-child', 'c-nth-last-child', 'c-of'
-							of = part.slice( part.indexOf( '-of-' ) + 4 ); // 'c-nth-child-m2n-p-4-of-p' => 'p'
-							if ( of.startsWith( 'attr-' ) ) {
-								of = `[${ of.slice( 5 ) }]`; // 'attr-value' => '[value]'
-							} else if ( of.startsWith( 'pseudo-' ) ) {
-								of = `:${ of.slice( 7 ) }`; // 'pseudo-value' => ':value'
-							} else if ( of.includes( '-' ) ) {
-								of = `:is(${ of.replaceAll( '-', ',' ) })`; // 'value1-value2' => ':is(value1,value2)'
+						if ( part.includes( '-of-' ) ) {
+							let s = part.slice( part.indexOf( '-of-' ) + 4 ); // '(d|c|c2|c3)-(nth(-last)?-mAnpB-of-S|of-S)' => 'S'
+							if ( s.startsWith( 'attr-' ) ) {
+								s = `[${ s.slice( 5 ) }]`; // 'attr-NAME' => '[NAME]'
+							} else if ( s.startsWith( 'pseudo-' ) ) {
+								s = `:${ s.slice( 7 ) }`; // 'pseudo-NAME' => ':NAME'
+							} else if ( s.includes( '-' ) ) {
+								s = `:is(${ s.replaceAll( '-', ',' ) })`; // 'TYPE-TYPE' => ':is(TYPE,TYPE)'
 							}
-							n += ` of ${ of }`; // '-2n + 4 of p'
+							n += ` of ${ s }`; // '-An+B of S'
 						}
-						[ slot.dKey, slot.dVal ] = [ nthPart, this._descendants[ nthPart ].replace( '(n)', `(${ n })` ) ]; // '>*:where(:nth-child(n))' => '>*:where(:nth-child(-2n + 4 of p))'
+						[ slot.dKey, slot.dVal ] = [ nthPart, this._descendants[ nthPart ].replace( '(n)', `(${ n })` ) ]; // ' *:where(:nth-child(n))' => ' *:where(:nth-child(-2n+4 of p))'
 						continue;
 					}
 				}
-				if ( this._pElements[ part ] ) { // 'after'
+				if ( this._pElements[ part ] ) { // '(before|after|…)'
 					[ slot.pEKey, slot.pEVal ] = [ part, this._pElements[ part ] ]; // '::after'
 					continue;
 				}
-				if ( this._pClasses[ part ] ) { // 'hover', 'action'
+				if ( this._pClasses[ part ] ) { // '(hover|active|…)', 
 					if ( slot.dKey ) {
-						[ slot.pC2Key, slot.pC2Val ] = [ part, this._pClasses[ part ] ]; // ':action'
+						[ slot.pC2Key, slot.pC2Val ] = [ part, this._pClasses[ part ] ]; // ':active'
 					} else {
 						[ slot.pC1Key, slot.pC1Val ] = [ part, this._pClasses[ part ] ]; // ':hover'
 					}
@@ -268,7 +266,7 @@ var ExStyle = (function () {
 			const body = this._properties[ slot.prop ] ? this._properties[ slot.prop ].replace( '/*@prop@*/', varName ).replace( '/*@layout_style@*/', this._layoutStyle ).replace( '/*@column_style@*/', this._columnStyle ).replace( '/*@text_style@*/', this._textStyle ) : `${ slot.prop }:var(${ varName });`;
 			return {
 				selector: `[style*="${ varName }:"]`,
-				css: `&${ slot.pC1Val }${ slot.dVal }${ slot.pC2Val }${ slot.pEVal }{${ body }}` // '&:hover > *:nth-child(-2n + 4 of p):action::after'
+				css: `&${ slot.pC1Val }${ slot.dVal }${ slot.pC2Val }${ slot.pEVal }{${ body }}` // '&:hover *:nth-child(-2n+4 of p):active::after'
 			};
 		}
 

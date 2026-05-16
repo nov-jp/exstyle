@@ -87,26 +87,23 @@ QUERY (クエリ), COMBINATOR (結合子), TREE-STRUCTURE (ツリー構造擬似
 | " | c2 | `& > * > *` |
 | " | c3 | `& > * > * > *` |
 | TREE-STRUCTURE | empty | `:empty` |
-| " | first-child | `:first-child` |
-| " | last-child | `:last-child` |
-| " | only-child | `:only-child` |
-| " | nth-child-mAn-p-B-of-TYPE | `:nth-child(-An+B of TYPE)` |
-| " | nth-child-mAn-p-B-of-TYPE-TYPE | `:nth-child(-An+B of :is(TYPE, TYPE))` |
-| " | nth-child-mAn-p-B-of-attr-ATTR | `:nth-child(-An+B of [ATTR])` |
-| " | nth-child-mAn-p-B-of-pseudo-PSEUDO-CLASS | `:nth-child(-An+B of :PSEUDO-CLASS)` |
-| " | nth-last-child-mAn-p-B-of-TYPE | `:nth-last-child(-An+B of TYPE)` |
-| " | nth-last-child-mAn-p-B-of-TYPE-TYPE | `:nth-last-child(-An+B of :is(TYPE, TYPE))` |
-| " | nth-last-child-mAn-p-B-of-attr-ATTR | `:nth-last-child(-An+B of [ATTR])` |
-| " | nth-last-child-mAn-p-B-of-pseudo-PSEUDO-CLASS | `:nth-last-child(-An+B of :PSEUDO-CLASS)` |
-| " | first-of-type | `:first-of-type` |
-| " | last-of-type | `:last-of-type` |
-| " | only-of-type | `:only-of-type` |
-| " | nth-of-type-mAn-p-B | `:nth-of-type(-An+B)` |
-| " | nth-last-of-type-mAn-p-B | `:nth-last-of-type(-An+B)` |
+| " | first | `:first-child` |
+| " | last | `:last-child` |
+| " | only | `:only-child` |
+| " | nth-mAnpB | `:nth-child(-An+B)` |
+| " | nth-mAnpB-of-TYPE | `:nth-child(-An+B of TYPE)` |
+| " | nth-mAnpB-of-TYPE-TYPE | `:nth-child(-An+B of :is(TYPE, TYPE))` |
+| " | nth-mAnpB-of-attr-NAME | `:nth-child(-An+B of [NAME])` |
+| " | nth-mAnpB-of-pseudo-NAME | `:nth-child(-An+B of :NAME)` |
+| " | nth-last-mAnpB | `:nth-last-child(-An+B)` |
+| " | nth-last-mAnpB-of-TYPE | `:nth-last-child(-An+B of TYPE)` |
+| " | nth-last-mAnpB-of-TYPE-TYPE | `:nth-last-child(-An+B of :is(TYPE, TYPE))` |
+| " | nth-last-mAnpB-of-attr-NAME | `:nth-last-child(-An+B of [NAME])` |
+| " | nth-last-mAnpB-of-pseudo-NAME | `:nth-last-child(-An+B of :NAME)` |
 | " | of-TYPE | `:nth-child(n of TYPE)` |
 | " | of-TYPE-TYPE | `:nth-child(n of :is(TYPE, TYPE))` |
-| " | of-attr-ATTR | `:nth-child(n of [ATTR])` |
-| " | of-pseudo-PSEUDO-CLASS | `:nth-child(n of :PSEUDO-CLASS)` |
+| " | of-attr-NAME | `:nth-child(n of [NAME])` |
+| " | of-pseudo-NAME | `:nth-child(n of :NAME)` |
 | PSEUDO-CLASS | any-link | `:any-link` |
 | " | link | `:link` |
 | " | visited | `:visited` |
@@ -172,19 +169,19 @@ QUERY (クエリ), COMBINATOR (結合子), TREE-STRUCTURE (ツリー構造擬似
 | " | aspect-ratio | `& { aspect-ratio: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&:is(iframe)) { block-size: auto; }` |
 | " | background | `& { background: var(--EXSTYLE-PROPERTY--); background-attachment: scroll; }` |
 | " | background-attachment | `& { clip-path: inset(0); }` <br> `&::before { background: inherit; content: ""; position: fixed; inset: 0; z-index: -1; }` <br> `&::after { content: none; }` |
-| " | columns | `& { columns: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | column-count | `& { column-count: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | column-width | `& { column-width: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | flex-flow | `& { flex-flow: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: flex; }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | flex-direction | `& { flex-direction: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: flex; }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | flex-wrap | `& { flex-wrap: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: flex; }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | columns | `& { columns: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) {` <wbr> `& > * { break-inside: avoid-column; contain: layout; }` <wbr> `& > :first-child { margin-block-start: 0; }` <wbr> `& > :last-child { margin-block-end: 0; }` <wbr> `}` <br> `:not(_):not(_):where(&) {` <wbr> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <wbr> `&:where(ul, menu) { list-style-type: ""; }` <wbr> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <wbr> `}` |
+| " | column-count | `& { column-count: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) {` <wbr> `& > * { break-inside: avoid-column; contain: layout; }` <wbr> `& > :first-child { margin-block-start: 0; }` <wbr> `& > :last-child { margin-block-end: 0; }` <wbr> `}` <br> `:not(_):not(_):where(&) {` <wbr> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <wbr> `&:where(ul, menu) { list-style-type: ""; }` <wbr> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <wbr> `}` |
+| " | column-width | `& { column-width: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) {` <wbr> `& > * { break-inside: avoid-column; contain: layout; }` <wbr> `& > :first-child { margin-block-start: 0; }` <wbr> `& > :last-child { margin-block-end: 0; }` <wbr> `}` <br> `:not(_):not(_):where(&) {` <wbr> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <wbr> `&:where(ul, menu) { list-style-type: ""; }` <wbr> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <wbr> `}` |
+| " | flex-flow | `& { flex-flow: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: flex; }` <br> `:not(_):not(_):where(&) {` <wbr> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <wbr> `&:where(ul, menu) { list-style-type: ""; }` <wbr> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <wbr> `}` |
+| " | flex-direction | `& { flex-direction: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: flex; }` <br> `:not(_):not(_):where(&) {` <wbr> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <wbr> `&:where(ul, menu) { list-style-type: ""; }` <wbr> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <wbr> `}` |
+| " | flex-wrap | `& { flex-wrap: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: flex; }` <br> `:not(_):not(_):where(&) {` <wbr> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <wbr> `&:where(ul, menu) { list-style-type: ""; }` <wbr> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <wbr> `}` |
 | " | font-size | `& { font-size: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 | " | font-style | `& { font-style: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 | " | font-weight | `& { font-weight: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| " | grid | `& { grid: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: grid; }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | grid-template | `& { grid-template: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: grid; }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | grid-template-rows | `& { grid-template-rows: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: grid; }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | grid-template-columns | `& { grid-template-columns: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: grid; }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | grid | `& { grid: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: grid; }` <br> `:not(_):not(_):where(&) {` <wbr> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <wbr> `&:where(ul, menu) { list-style-type: ""; }` <wbr> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <wbr> `}` |
+| " | grid-template | `& { grid-template: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: grid; }` <br> `:not(_):not(_):where(&) {` <wbr> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <wbr> `&:where(ul, menu) { list-style-type: ""; }` <wbr> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <wbr> `}` |
+| " | grid-template-rows | `& { grid-template-rows: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: grid; }` <br> `:not(_):not(_):where(&) {` <wbr> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <wbr> `&:where(ul, menu) { list-style-type: ""; }` <wbr> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <wbr> `}` |
+| " | grid-template-columns | `& { grid-template-columns: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { display: grid; }` <br> `:not(_):not(_):where(&) {` <wbr> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <wbr> `&:where(ul, menu) { list-style-type: ""; }` <wbr> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <wbr> `}` |
 | " | text-decoration | `& { text-decoration: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 | " | text-emphasis | `& { text-emphasis: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 | " | text-shadow | `& { text-shadow: var(--EXSTYLE-PROPERTY--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
