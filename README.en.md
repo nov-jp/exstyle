@@ -90,23 +90,23 @@ The available names for QUERY (Queries), COMBINATOR (Combinators), TREE-STRUCTUR
 | " | first-child | `:first-child` |
 | " | last-child | `:last-child` |
 | " | only-child | `:only-child` |
-| " | nth-child-m2n-p-4-of-p | `:nth-child(-2n + 4 of p)` |
-| " | nth-child-m2n-p-4-of-td-th | `:nth-child(-2n + 4 of :is(td, th))` |
-| " | nth-child-m2n-p-4-of-attr-style | `:nth-child(-2n + 4 of [style])` |
-| " | nth-child-m2n-p-4-of-pseudo-focus | `:nth-child(-2n + 4 of :focus)` |
-| " | nth-last-child-m2n-p-4-of-p | `:nth-last-child(-2n + 4 of p)` |
-| " | nth-last-child-m2n-p-4-of-td-th | `:nth-last-child(-2n + 4 of :is(td, th))` |
-| " | nth-last-child-m2n-p-4-of-attr-style | `:nth-last-child(-2n + 4 of [style])` |
-| " | nth-last-child-m2n-p-4-of-pseudo-focus | `:nth-last-child(-2n + 4 of :focus)` |
+| " | nth-child-mAn-p-B-of-TYPE | `:nth-child(-An+B of TYPE)` |
+| " | nth-child-mAn-p-B-of-TYPE-TYPE | `:nth-child(-An+B of :is(TYPE, TYPE))` |
+| " | nth-child-mAn-p-B-of-attr-ATTR | `:nth-child(-An+B of [ATTR])` |
+| " | nth-child-mAn-p-B-of-pseudo-PSEUDO-CLASS | `:nth-child(-An+B of :PSEUDO-CLASS)` |
+| " | nth-last-child-mAn-p-B-of-TYPE | `:nth-last-child(-An+B of TYPE)` |
+| " | nth-last-child-mAn-p-B-of-TYPE-TYPE | `:nth-last-child(-An+B of :is(TYPE, TYPE))` |
+| " | nth-last-child-mAn-p-B-of-attr-ATTR | `:nth-last-child(-An+B of [ATTR])` |
+| " | nth-last-child-mAn-p-B-of-pseudo-PSEUDO-CLASS | `:nth-last-child(-An+B of :PSEUDO-CLASS)` |
 | " | first-of-type | `:first-of-type` |
 | " | last-of-type | `:last-of-type` |
 | " | only-of-type | `:only-of-type` |
-| " | nth-of-type-m2n-p-4 | `:nth-of-type(-2n + 4)` |
-| " | nth-last-of-type-m2n-p-4 | `:nth-last-of-type(-2n + 4)` |
-| " | of-p | `:nth-child(n of p)` |
-| " | of-td-th | `:nth-child(n of :is(td, th))` |
-| " | of-attr-style | `:nth-child(n of [style])` |
-| " | of-pseudo-focus | `:nth-child(n of :focus)` |
+| " | nth-of-type-mAn-p-B | `:nth-of-type(-An+B)` |
+| " | nth-last-of-type-mAn-p-B | `:nth-last-of-type(-An+B)` |
+| " | of-TYPE | `:nth-child(n of TYPE)` |
+| " | of-TYPE-TYPE | `:nth-child(n of :is(TYPE, TYPE))` |
+| " | of-attr-ATTR | `:nth-child(n of [ATTR])` |
+| " | of-pseudo-PSEUDO-CLASS | `:nth-child(n of :PSEUDO-CLASS)` |
 | PSEUDO-CLASS | any-link | `:any-link` |
 | " | link | `:link` |
 | " | visited | `:visited` |
@@ -139,23 +139,23 @@ The available names for QUERY (Queries), COMBINATOR (Combinators), TREE-STRUCTUR
 | " | optional | `:optional` |
 | " | user-valid | `:user-valid` |
 | " | user-invalid | `:user-invalid` |
-| " | ANY-PSEUDO-CLASS-n | `:is(:ANY-PSEUDO-CLASS + *)` |
-| " | ANY-PSEUDO-CLASS-s | `:is(:ANY-PSEUDO-CLASS ~ *)` |
-| " | n-ANY-PSEUDO-CLASS | `:has(+ :ANY-PSEUDO-CLASS)` |
-| " | s-ANY-PSEUDO-CLASS | `:has(~ :ANY-PSEUDO-CLASS)` |
-| " | d-ANY-PSEUDO-CLASS | `:has(:ANY-PSEUDO-CLASS)` |
-| " | c-ANY-PSEUDO-CLASS | `:has(> :ANY-PSEUDO-CLASS)` |
-| " | c2-ANY-PSEUDO-CLASS | `:has(> * > :ANY-PSEUDO-CLASS)` |
-| " | c3-ANY-PSEUDO-CLASS | `:has(> * > * > :ANY-PSEUDO-CLASS)` |
-| " | not-ANY-PSEUDO-CLASS | `:not(:ANY-PSEUDO-CLASS)` |
-| " | not-ANY-PSEUDO-CLASS-n | `:not(:ANY-PSEUDO-CLASS + *)` |
-| " | not-ANY-PSEUDO-CLASS-s | `:not(:ANY-PSEUDO-CLASS ~ *)` |
-| " | not-n-ANY-PSEUDO-CLASS | `:not(:has(+ :ANY-PSEUDO-CLASS))` |
-| " | not-s-ANY-PSEUDO-CLASS | `:not(:has(~ :ANY-PSEUDO-CLASS))` |
-| " | not-d-ANY-PSEUDO-CLASS | `:not(:has(:ANY-PSEUDO-CLASS))` |
-| " | not-c-ANY-PSEUDO-CLASS | `:not(:has(> :ANY-PSEUDO-CLASS))` |
-| " | not-c2-ANY-PSEUDO-CLASS | `:not(:has(> * > :ANY-PSEUDO-CLASS))` |
-| " | not-c3-ANY-PSEUDO-CLASS | `:not(:has(> * > * > :ANY-PSEUDO-CLASS))` |
+| " | PSEUDO-CLASS-n | `:is(:PSEUDO-CLASS + *)` |
+| " | PSEUDO-CLASS-s | `:is(:PSEUDO-CLASS ~ *)` |
+| " | n-PSEUDO-CLASS | `:has(+ :PSEUDO-CLASS)` |
+| " | s-PSEUDO-CLASS | `:has(~ :PSEUDO-CLASS)` |
+| " | d-PSEUDO-CLASS | `:has(:PSEUDO-CLASS)` |
+| " | c-PSEUDO-CLASS | `:has(> :PSEUDO-CLASS)` |
+| " | c2-PSEUDO-CLASS | `:has(> * > :PSEUDO-CLASS)` |
+| " | c3-PSEUDO-CLASS | `:has(> * > * > :PSEUDO-CLASS)` |
+| " | not-PSEUDO-CLASS | `:not(:PSEUDO-CLASS)` |
+| " | not-PSEUDO-CLASS-n | `:not(:PSEUDO-CLASS + *)` |
+| " | not-PSEUDO-CLASS-s | `:not(:PSEUDO-CLASS ~ *)` |
+| " | not-n-PSEUDO-CLASS | `:not(:has(+ :PSEUDO-CLASS))` |
+| " | not-s-PSEUDO-CLASS | `:not(:has(~ :PSEUDO-CLASS))` |
+| " | not-d-PSEUDO-CLASS | `:not(:has(:PSEUDO-CLASS))` |
+| " | not-c-PSEUDO-CLASS | `:not(:has(> :PSEUDO-CLASS))` |
+| " | not-c2-PSEUDO-CLASS | `:not(:has(> * > :PSEUDO-CLASS))` |
+| " | not-c3-PSEUDO-CLASS | `:not(:has(> * > * > :PSEUDO-CLASS))` |
 | PSEUDO-ELEMENT | backdrop | `::backdrop` |
 | " | first-line | `::first-line` |
 | " | first-letter | `::first-letter` |
